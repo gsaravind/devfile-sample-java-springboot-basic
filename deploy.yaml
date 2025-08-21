@@ -23,6 +23,12 @@ spec:
             requests:
               memory: "180Mi"
               cpu: "10m"
+          redinessProbe:
+            httpGet:
+              path: /actuator/health/readiness
+              port: 8081
+            initialDelaySeconds: 60
+            periodSeconds: 5
 ---
 kind: Service
 apiVersion: v1
